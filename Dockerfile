@@ -14,14 +14,9 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-# Clone the upstream develop branch at the release tag.
-# Maxun merges release content into develop after tagging, so we use develop
-# and verify the version matches expectations via package.json.
-RUN git clone --depth 1 --branch develop \
-    https://github.com/getmaxun/maxun.git . && \
-    ACTUAL=$(node -p "require('./package.json').version") && \
-    echo "Cloned package.json version: $ACTUAL (expected: $MAXUN_VERSION)" && \
-    [ "$ACTUAL" = "$MAXUN_VERSION" ] || (echo "Version mismatch!" && exit 1)
+# Clone the exact upstream release tag
+RUN git clone --depth 1 --branch v${MAXUN_VERSION} \
+    https://github.com/getmaxun/maxun.git .
 
 RUN npm install --legacy-peer-deps
 
