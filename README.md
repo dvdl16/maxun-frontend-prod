@@ -29,13 +29,9 @@ Replace the `frontend` service in your `docker-compose.yml`:
 frontend:
   image: ghcr.io/dvdl16/maxun-frontend-prod:0.0.35
   container_name: maxun-frontend
-  mem_limit: 64M
   restart: unless-stopped
   ports:
     - "5173:80"
-  networks:
-    - maxun-internal
-    - blackkite-proxy-network
 ```
 
 
