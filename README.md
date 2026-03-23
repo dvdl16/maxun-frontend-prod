@@ -15,7 +15,7 @@ Images are hosted on the **GitHub Container Registry (ghcr.io)** and built autom
 
 ## Versioning
 
-`version.txt` contains the Maxun upstream version this image is built from (e.g. `0.0.35`). The Docker image is tagged with the same version.
+`version.txt` contains the Maxun upstream **image** version this image is built from (e.g. `0.0.35`). The Docker image is tagged with the same version.
 
 To upgrade to a new Maxun release:
 1. Update `version.txt` to the new version
